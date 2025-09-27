@@ -16,7 +16,6 @@ const Skills = () => {
     {
       title: "Développement Web",
       icon: Globe,
-      color: "primary",
       skills: [
         "React / Next.js",
         "TypeScript",
@@ -32,7 +31,6 @@ const Skills = () => {
     {
       title: "Développement FiveM",
       icon: Gamepad2,
-      color: "secondary",
       skills: [
         "Lua Scripting",
         "ESX Framework",
@@ -48,7 +46,6 @@ const Skills = () => {
     {
       title: "DevOps & Infrastructure",
       icon: Server,
-      color: "accent",
       skills: [
         "Linux Administration",
         "Docker",
@@ -63,38 +60,12 @@ const Skills = () => {
     }
   ];
 
-  const getIconColorClass = (color: string) => {
-    switch (color) {
-      case "primary":
-        return "text-primary";
-      case "secondary":
-        return "text-secondary";
-      case "accent":
-        return "text-accent-foreground";
-      default:
-        return "text-muted-foreground";
-    }
-  };
-
-  const getBadgeVariant = (color: string) => {
-    switch (color) {
-      case "primary":
-        return "default";
-      case "secondary":
-        return "secondary";
-      default:
-        return "outline";
-    }
-  };
-
   return (
-    <section id="skills" className="py-20 bg-surface">
+    <section id="skills" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="mb-6">
-            <span className="text-gradient">Compétences</span> & Expertise
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="mb-6">Compétences & Expertise</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Une expertise technique diversifiée pour répondre à tous vos besoins, 
             du développement web aux serveurs de jeu les plus complexes.
           </p>
@@ -104,16 +75,16 @@ const Skills = () => {
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card 
+              <div 
                 key={category.title}
-                className="card-elevated p-6 hover:shadow-glow transition-all duration-500 group"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="card-elevated p-6 group"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className={`h-8 w-8 ${getIconColorClass(category.color)}`} />
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-muted mb-4">
+                    <IconComponent className="h-6 w-6 text-foreground" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+                  <h3 className="text-lg font-semibold mb-2">{category.title}</h3>
                   <p className="text-muted-foreground text-sm">{category.description}</p>
                 </div>
                 
@@ -121,19 +92,19 @@ const Skills = () => {
                   {category.skills.map((skill) => (
                     <Badge 
                       key={skill}
-                      variant={getBadgeVariant(category.color)}
-                      className="hover:scale-105 transition-transform duration-200"
+                      variant="outline"
+                      className="text-xs hover:bg-muted transition-colors"
                     >
                       {skill}
                     </Badge>
                   ))}
                 </div>
-              </Card>
+              </div>
             );
           })}
         </div>
 
-        {/* Stats Section */}
+        {/* Simple Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { icon: Code2, value: "50+", label: "Projets Web" },
@@ -145,11 +116,11 @@ const Skills = () => {
             return (
               <div 
                 key={stat.label}
-                className="text-center p-4 rounded-xl bg-surface-elevated border border-border hover:shadow-glow transition-all duration-300"
+                className="text-center p-4 rounded-lg bg-card border border-border"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <IconComponent className="h-8 w-8 text-primary mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gradient mb-1">{stat.value}</div>
+                <IconComponent className="h-6 w-6 text-foreground mx-auto mb-2" />
+                <div className="text-xl font-semibold text-foreground mb-1">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             );

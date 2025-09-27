@@ -42,10 +42,10 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <Code2 className="h-5 w-5 text-white" />
+            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+              <Code2 className="h-5 w-5 text-background" />
             </div>
-            <span className="font-bold text-xl text-gradient">DevPortfolio</span>
+            <span className="font-semibold text-lg text-foreground">DevPortfolio</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -65,7 +65,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection("#contact")}
-              className="btn-primary rounded-full px-6"
+              className="rounded-full px-6"
             >
               Me contacter
             </Button>
@@ -99,7 +99,7 @@ const Header = () => {
             <div className="pt-4 border-t border-border">
               <Button 
                 onClick={() => scrollToSection("#contact")}
-                className="w-full btn-primary rounded-full"
+                className="w-full rounded-full"
               >
                 Me contacter
               </Button>

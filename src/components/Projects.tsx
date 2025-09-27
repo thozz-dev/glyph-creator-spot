@@ -127,11 +127,9 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="mb-6">
-            Mes <span className="text-gradient">Projets</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="mb-6">Mes Projets</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Découvrez une sélection de mes réalisations les plus récentes, 
             alliant innovation technique et design moderne.
           </p>
@@ -148,8 +146,8 @@ const Projects = () => {
                 onClick={() => setFilter(filterOption.id)}
                 className={`rounded-full px-6 py-2 transition-all duration-300 ${
                   filter === filterOption.id 
-                    ? "shadow-glow scale-105" 
-                    : "hover:shadow-md"
+                    ? "shadow-md" 
+                    : ""
                 }`}
               >
                 <IconComponent className="w-4 h-4 mr-2" />
@@ -162,19 +160,19 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <Card 
+            <div 
               key={project.id}
-              className="card-elevated overflow-hidden group hover:shadow-glow transition-all duration-500"
+              className="card-elevated overflow-hidden group transition-all duration-300 hover:shadow-lg"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Project Image */}
               <div className="relative h-48 bg-surface overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
+                <div className="absolute inset-0 bg-muted/50" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   {project.category === "fivem" ? (
-                    <Gamepad2 className="h-16 w-16 text-primary/50" />
+                    <Gamepad2 className="h-12 w-12 text-foreground/30" />
                   ) : (
-                    <Globe className="h-16 w-16 text-secondary/50" />
+                    <Globe className="h-12 w-12 text-foreground/30" />
                   )}
                 </div>
                 
@@ -188,7 +186,7 @@ const Projects = () => {
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="font-bold text-xl mb-2 group-hover:text-gradient transition-all duration-300">
+                <h3 className="font-semibold text-lg mb-2 group-hover:text-foreground transition-all duration-300">
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
@@ -213,7 +211,7 @@ const Projects = () => {
                 <div className="space-y-1 mb-6">
                   {project.features.slice(0, 2).map((feature) => (
                     <div key={feature} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-foreground rounded-full mr-2 flex-shrink-0" />
                       {feature}
                     </div>
                   ))}
@@ -223,7 +221,7 @@ const Projects = () => {
                 <div className="flex gap-2">
                   <Button 
                     size="sm" 
-                    className="flex-1 btn-primary"
+                    className="flex-1"
                     asChild
                   >
                     <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
@@ -234,7 +232,6 @@ const Projects = () => {
                   <Button 
                     size="sm" 
                     variant="outline"
-                    className="btn-ghost"
                     asChild
                   >
                     <a href={project.links.github} target="_blank" rel="noopener noreferrer">
@@ -243,7 +240,7 @@ const Projects = () => {
                   </Button>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
 
@@ -253,7 +250,7 @@ const Projects = () => {
             Intéressé par mes services ? Discutons de votre projet !
           </p>
           <Button 
-            className="btn-primary px-8 py-3 text-lg rounded-full"
+            className="px-8 py-3 rounded-full"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Démarrer un projet

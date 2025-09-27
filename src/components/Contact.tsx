@@ -83,13 +83,11 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-surface">
+    <section id="contact" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="mb-6">
-            <span className="text-gradient">Contactez-moi</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="mb-6">Contactez-moi</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Prêt à donner vie à votre projet ? Parlons-en ensemble et créons 
             quelque chose d'exceptionnel.
           </p>
@@ -177,7 +175,7 @@ const Contact = () => {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-primary py-3 text-lg rounded-full group"
+                className="w-full px-8 py-3 rounded-full group"
               >
                 {isSubmitting ? (
                   <>

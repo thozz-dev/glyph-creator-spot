@@ -30,10 +30,10 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <Code2 className="h-5 w-5 text-white" />
+              <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+                <Code2 className="h-5 w-5 text-background" />
               </div>
-              <span className="font-bold text-xl text-gradient">DevPortfolio</span>
+              <span className="font-semibold text-lg text-foreground">DevPortfolio</span>
             </div>
             <p className="text-muted-foreground max-w-sm">
               Développeur passionné créant des expériences digitales exceptionnelles 
