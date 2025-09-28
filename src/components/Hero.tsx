@@ -39,14 +39,14 @@ const Hero = () => {
           {/* Clean Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             Je transforme vos idées en expériences digitales exceptionnelles. 
-            Spécialisé dans le développement web moderne et les serveurs FiveM performants.
+            Spécialisé dans le développement web et les serveurs FiveM.
           </p>
           
           {/* Simple CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button 
               onClick={scrollToProjects}
-              className="px-8 py-3 rounded-full group"
+              className="px-8 py-3 rounded-xl group"
             >
               Voir mes projets
               <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -55,7 +55,7 @@ const Hero = () => {
             <Button 
               onClick={scrollToContact}
               variant="outline"
-              className="px-8 py-3 rounded-full"
+              className="px-8 py-3 rounded-xl"
             >
               <Mail className="mr-2 h-4 w-4" />
               Me contacter
@@ -65,7 +65,7 @@ const Hero = () => {
           {/* Minimal Quick Links */}
           <div className="flex justify-center gap-8">
             <a 
-              href="#" 
+              href="https://github.com/thozz-dev" 
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
             >
               <Github className="h-4 w-4" />
@@ -76,7 +76,7 @@ const Hero = () => {
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
             >
               <ExternalLink className="h-4 w-4" />
-              <span className="text-sm">Portfolio</span>
+              <span className="text-sm">Discord</span>
             </a>
           </div>
         </div>

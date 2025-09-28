@@ -8,7 +8,9 @@ import {
   Globe, 
   Gamepad2, 
   Code2,
-  Filter
+  CircleX,
+  Filter,
+  TvMinimalPlay
 } from "lucide-react";
 
 const Projects = () => {
@@ -17,13 +19,13 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Serveur FiveM RP Avancé",
-      description: "Serveur roleplay complet avec système économique, jobs personnalisés, et interface utilisateur moderne. Plus de 500 joueurs simultanés.",
+      title: "Serveur FiveM RP",
+      description: "Serveur roleplay complet avec système économique, jobs personnalisés, et interface utilisateur moderne. Plus de 100 joueurs simultanés.",
       image: "/api/placeholder/600/400",
-      category: "fivem",
-      technologies: ["Lua", "ESX", "MySQL", "React", "Node.js"],
+      category: "fermer",
+      technologies: ["Lua", "ESX", "MySQL", "NUI (HTML/CSS/JS)", "Client-Server Architecture", "Optimisation"],
       features: ["Système économique", "Jobs personnalisés", "Interface moderne", "Anti-cheat"],
-      status: "En ligne",
+      status: "Fermer",
       links: {
         demo: "#",
         github: "#"
@@ -31,80 +33,53 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Dashboard Administrateur",
-      description: "Interface d'administration complète pour serveurs FiveM avec monitoring en temps réel, gestion des joueurs et analytics.",
+      title: "Portfolio Photographe",
+      description: "Site vitrine pour un photographe professionnel, avec une interface utilisateur moderne et une gestion de contenu facile.",
       image: "/api/placeholder/600/400",
       category: "web",
-      technologies: ["React", "TypeScript", "Tailwind", "Express", "Socket.io"],
-      features: ["Monitoring temps réel", "Gestion joueurs", "Analytics", "Logs"],
+      technologies: ["HTML", "CSS", "JavaScript"],
+      features: ["Gestion de contenu", "Anti-copyright", "Analytics", "Logs"],
       status: "Terminé",
       links: {
-        demo: "#",
+        demo: "https://devflorianportfolio.github.io/",
         github: "#"
       }
     },
     {
       id: 3,
-      title: "E-commerce Moderne",
-      description: "Plateforme e-commerce complète avec paiements sécurisés, gestion des stocks et interface utilisateur responsive.",
+      title: "Script Blackout",
+      description: "Script immersive ou le joueur peux provoquer un blackout de tout la ville.",
       image: "/api/placeholder/600/400",
-      category: "web",
-      technologies: ["Next.js", "Stripe", "PostgreSQL", "Prisma", "Tailwind"],
-      features: ["Paiements sécurisés", "Gestion stocks", "Panel admin", "Responsive"],
+      category: "fivem",
+      technologies: ["Lua", "ESX"],
+      features: ["Script immersive", "Optimisation"],
       status: "Terminé",
       links: {
-        demo: "#",
+        demo: "https://youtu.be/fw8s8eR7DqY?si=E6tzGKCT7ynzE-Rc",
         github: "#"
       }
     },
     {
       id: 4,
-      title: "Framework FiveM Custom",
-      description: "Framework personnalisé optimisé pour les performances, avec système de modules et API simplifiée pour développeurs.",
+      title: "Script Supérette UI",
+      description: "Script tablet supérette pour FiveM.",
       image: "/api/placeholder/600/400",
       category: "fivem",
-      technologies: ["Lua", "JavaScript", "MySQL", "Redis", "Docker"],
-      features: ["Système modulaire", "API simplifiée", "Optimisé", "Documentation"],
-      status: "Open Source",
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    },
-    {
-      id: 5,
-      title: "Application SaaS",
-      description: "Plateforme SaaS complète avec authentification, abonnements, dashboard utilisateur et API REST.",
-      image: "/api/placeholder/600/400",
-      category: "web",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
-      features: ["Multi-tenant", "Abonnements", "API REST", "Dashboard"],
+      technologies: ["Lua", "JavaScript", "MySQL", "ESX", "NUI (HTML/CSS/JS)", "Client-Server Architecture", "Optimisation"],
+      features: ["Système economique", "Interface moderne"],
       status: "Terminé",
       links: {
-        demo: "#",
+        demo: "https://youtu.be/Sq9omwhmLCM?si=fkPo9v6UB6kQiKLm",
         github: "#"
       }
     },
-    {
-      id: 6,
-      title: "Système de Whitelist",
-      description: "Système avancé de whitelist pour serveurs FiveM avec processus de candidature automatisé et interface intuitive.",
-      image: "/api/placeholder/600/400",
-      category: "fivem",
-      technologies: ["Lua", "React", "Express", "MySQL", "Discord API"],
-      features: ["Candidatures auto", "Interface Discord", "Modération", "Analytics"],
-      status: "En ligne",
-      links: {
-        demo: "#",
-        github: "#"
-      }
-    }
   ];
 
   const filters = [
     { id: "all", label: "Tous les projets", icon: Code2 },
     { id: "web", label: "Développement Web", icon: Globe },
-    { id: "fivem", label: "FiveM", icon: Gamepad2 }
+    { id: "fivem", label: "FiveM", icon: Gamepad2 },
+    { id: "fermer", label: "Fermer", icon: CircleX },
   ];
 
   const filteredProjects = filter === "all" 
@@ -117,7 +92,7 @@ const Projects = () => {
         return "bg-success text-success-foreground";
       case "Terminé":
         return "bg-primary text-primary-foreground";
-      case "Open Source":
+      case "Fermer":
         return "bg-secondary text-secondary-foreground";
       default:
         return "bg-muted text-muted-foreground";
@@ -225,7 +200,7 @@ const Projects = () => {
                     asChild
                   >
                     <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                      <TvMinimalPlay className="w-4 h-4 mr-2" />
                       Voir
                     </a>
                   </Button>
@@ -235,7 +210,7 @@ const Projects = () => {
                     asChild
                   >
                     <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   </Button>
                 </div>

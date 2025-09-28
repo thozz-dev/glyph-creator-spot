@@ -17,14 +17,14 @@ const Skills = () => {
       title: "Développement Web",
       icon: Globe,
       skills: [
+        "Html",
+        "CSS",
+        "JavaScript",
         "React / Next.js",
         "TypeScript",
         "Tailwind CSS",
         "Node.js",
-        "Express",
-        "MongoDB / PostgreSQL",
-        "API REST",
-        "WebSocket"
+        "Supabase",
       ],
       description: "Applications web modernes et performantes"
     },
@@ -34,30 +34,13 @@ const Skills = () => {
       skills: [
         "Lua Scripting",
         "ESX Framework",
-        "QBCore",
         "MySQL",
         "NUI (HTML/CSS/JS)",
         "Client-Server Architecture",
         "Optimisation",
-        "Anti-Cheat"
       ],
-      description: "Serveurs FiveM optimisés et sécurisés"
+      description: "Serveurs FiveM optimisés"
     },
-    {
-      title: "DevOps & Infrastructure",
-      icon: Server,
-      skills: [
-        "Linux Administration",
-        "Docker",
-        "CI/CD",
-        "Monitoring",
-        "Performance Tuning",
-        "Security",
-        "Backup Systems",
-        "Load Balancing"
-      ],
-      description: "Infrastructure robuste et scalable"
-    }
   ];
 
   return (
@@ -67,11 +50,11 @@ const Skills = () => {
           <h2 className="mb-6">Compétences & Expertise</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Une expertise technique diversifiée pour répondre à tous vos besoins, 
-            du développement web aux serveurs de jeu les plus complexes.
+            du développement web aux serveurs fivem les plus complexes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
@@ -107,10 +90,10 @@ const Skills = () => {
         {/* Simple Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: Code2, value: "50+", label: "Projets Web" },
-            { icon: Gamepad2, value: "30+", label: "Serveurs FiveM" },
-            { icon: Database, value: "100%", label: "Uptime" },
-            { icon: Zap, value: "24/7", label: "Support" }
+            { icon: Code2, value: "5+", label: "Projets Web" },
+            { icon: Gamepad2, value: "2+", label: "Serveurs FiveM" },
+            { icon: Database, value: "10+", label: "Script Fivem" },
+            { icon: Zap, value: "10/5", label: "Support" }
           ].map((stat, index) => {
             const IconComponent = stat.icon;
             return (

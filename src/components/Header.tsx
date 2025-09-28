@@ -45,7 +45,7 @@ const Header = () => {
             <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
               <Code2 className="h-5 w-5 text-background" />
             </div>
-            <span className="font-semibold text-lg text-foreground">DevPortfolio</span>
+            <span className="font-semibold text-lg text-foreground">thozz</span>
           </div>
 
           {/* Desktop Navigation */}

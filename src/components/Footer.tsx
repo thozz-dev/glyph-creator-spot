@@ -11,9 +11,9 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: ExternalLink, href: "#", label: "Portfolio" },
-    { icon: MessageCircle, href: "#", label: "Discord" }
+    { icon: Github, href: "https://github.com/thozz-dev", label: "GitHub" },
+    { icon: ExternalLink, href: "https://www.joao-dev.com/#", label: "Portfolio" },
+    { icon: MessageCircle, href: "https://www.joao-dev.com/", label: "Discord" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -33,7 +33,7 @@ const Footer = () => {
               <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
                 <Code2 className="h-5 w-5 text-background" />
               </div>
-              <span className="font-semibold text-lg text-foreground">DevPortfolio</span>
+              <span className="font-semibold text-lg text-foreground">.thozz</span>
             </div>
             <p className="text-muted-foreground max-w-sm">
               Développeur passionné créant des expériences digitales exceptionnelles 
@@ -77,8 +77,8 @@ const Footer = () => {
               })}
             </div>
             <div className="text-sm text-muted-foreground">
-              <p>📧 contact@developer.com</p>
-              <p>💬 Discord: Developer#1234</p>
+              <p>📧 contact@joao-dev.com</p>
+              <p>💬 Discord: .thozz</p>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} DevPortfolio. Tous droits réservés.
+              © {currentYear} .thozz. Tous droits réservés.
             </p>
             <p className="text-muted-foreground text-sm flex items-center gap-1">
               Fait avec <Heart className="h-4 w-4 text-red-500 animate-pulse" /> en France

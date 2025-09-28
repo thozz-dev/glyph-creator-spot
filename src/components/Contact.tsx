@@ -52,33 +52,31 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "contact@developer.com",
-      href: "mailto:contact@developer.com",
+      value: "contact@joao-dev.com",
+      href: "mailto:contact@joao-dev.com",
       color: "primary"
     },
     {
       icon: MessageCircle,
       label: "Discord",
-      value: "Developer#1234",
+      value: ".thozz",
       href: "#",
       color: "secondary"
     },
     {
       icon: Clock,
       label: "Disponibilité",
-      value: "24h/48h de réponse",
+      value: "2h/j",
       href: null,
       color: "accent"
     }
   ];
 
   const projectTypes = [
-    "Site Web / Application",
+    "Site Web / Web Application",
     "Serveur FiveM",
-    "Dashboard / Panel Admin",
-    "API / Backend",
     "Optimisation / Maintenance",
-    "Formation / Consulting",
+    "Creation / Amélioration (Fivem & Web)",
     "Autre"
   ];
 
@@ -257,9 +255,9 @@ const Contact = () => {
               <h4 className="font-bold text-lg mb-4 text-center">Retrouvez-moi aussi sur</h4>
               <div className="flex justify-center gap-4">
                 {[
-                  { icon: Github, href: "#", label: "GitHub" },
-                  { icon: ExternalLink, href: "#", label: "Portfolio" },
-                  { icon: MessageCircle, href: "#", label: "Discord" }
+                  { icon: Github, href: "https://github.com/thozz-dev", label: "GitHub" },
+                  { icon: ExternalLink, href: "https://www.joao-dev.com/", label: "Portfolio" },
+                  { icon: MessageCircle, href: "https://www.joao-dev.com/", label: "Discord" }
                 ].map((social) => {
                   const IconComponent = social.icon;
                   return (
