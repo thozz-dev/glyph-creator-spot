@@ -60,8 +60,8 @@ const Skills = () => {
             return (
               <div 
                 key={category.title}
-                className="card-elevated p-6 group"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="card-elevated p-6 group hover-lift animate-fade-up"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="text-center mb-6">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-muted mb-4">
@@ -99,8 +99,8 @@ const Skills = () => {
             return (
               <div 
                 key={stat.label}
-                className="text-center p-4 rounded-lg bg-card border border-border"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="text-center p-4 rounded-lg bg-card border border-border hover-lift animate-scale-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <IconComponent className="h-6 w-6 text-foreground mx-auto mb-2" />
                 <div className="text-xl font-semibold text-foreground mb-1">{stat.value}</div>

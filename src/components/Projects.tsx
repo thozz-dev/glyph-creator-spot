@@ -137,8 +137,8 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id}
-              className="card-elevated overflow-hidden group transition-all duration-300 hover:shadow-lg"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="card-elevated overflow-hidden group transition-all duration-300 hover:shadow-lg hover-lift animate-scale-in"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* Project Image */}
               <div className="relative h-48 bg-surface overflow-hidden">

@@ -173,7 +173,7 @@ const Contact = () => {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-3 rounded-full group"
+                className="w-full px-8 py-3 rounded-full group hover-glow"
               >
                 {isSubmitting ? (
                   <>
