@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,8 +18,10 @@ const Header = () => {
 
   const menuItems = [
     { label: "Accueil", href: "#hero" },
+    { label: "À propos", href: "#about" },
     { label: "Compétences", href: "#skills" },
     { label: "Projets", href: "#projects" },
+    { label: "Témoignages", href: "#testimonials" },
     { label: "Contact", href: "#contact" }
   ];
 
@@ -62,7 +65,8 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Button 
               onClick={() => scrollToSection("#contact")}
               className="px-8 rounded-xl"
@@ -96,7 +100,10 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4 border-t border-border space-y-3">
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
               <Button 
                 onClick={() => scrollToSection("#contact")}
                 className="w-full rounded-xl"

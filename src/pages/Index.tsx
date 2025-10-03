@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
@@ -41,10 +43,16 @@ const Index = () => {
             <Hero />
           </section>
           <div className="animate-fade-up animation-delay-200">
+            <About />
+          </div>
+          <div className="animate-fade-up animation-delay-200">
             <Skills />
           </div>
           <div className="animate-fade-up animation-delay-400">
             <Projects />
+          </div>
+          <div className="animate-fade-up animation-delay-400">
+            <Testimonials />
           </div>
           <div className="animate-fade-up animation-delay-600">
             <Contact />
