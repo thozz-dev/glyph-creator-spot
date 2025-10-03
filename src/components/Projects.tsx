@@ -119,7 +119,7 @@ const Projects = () => {
                 key={filterOption.id}
                 variant={filter === filterOption.id ? "default" : "outline"}
                 onClick={() => setFilter(filterOption.id)}
-                className={`rounded-full px-6 py-2 transition-all duration-300 ${
+                className={`rounded-xl px-6 py-2 transition-all duration-300 ${
                   filter === filterOption.id 
                     ? "shadow-md" 
                     : ""
@@ -225,7 +225,7 @@ const Projects = () => {
             Intéressé par mes services ? Discutons de votre projet !
           </p>
           <Button 
-            className="px-8 py-3 rounded-full"
+            className="px-8 py-3 rounded-xl"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Démarrer un projet

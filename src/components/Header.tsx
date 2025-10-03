@@ -65,7 +65,7 @@ const Header = () => {
           <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection("#contact")}
-              className="rounded-full px-6"
+              className="px-8 rounded-xl"
             >
               Me contacter
             </Button>
@@ -99,7 +99,7 @@ const Header = () => {
             <div className="pt-4 border-t border-border">
               <Button 
                 onClick={() => scrollToSection("#contact")}
-                className="w-full rounded-full"
+                className="w-full rounded-xl"
               >
                 Me contacter
               </Button>

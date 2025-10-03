@@ -25,8 +25,8 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto animate-fade-up">
           {/* Minimal Status Badge */}
-          <div className="inline-flex items-center gap-2 border border-border rounded-full px-4 py-2 mb-8 bg-card">
-            <div className="w-2 h-2 bg-foreground rounded-full"></div>
+          <div className="inline-flex items-center gap-2 border border-border rounded-xl px-4 py-2 mb-8 bg-card">
+            <div className="w-2 h-2 green rounded-xl"></div>
             <span className="text-sm text-muted-foreground">Disponible pour nouveaux projets</span>
           </div>
           

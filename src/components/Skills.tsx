@@ -25,6 +25,7 @@ const Skills = () => {
         "Tailwind CSS",
         "Node.js",
         "Supabase",
+        "MYSQL",
       ],
       description: "Applications web modernes et performantes"
     },

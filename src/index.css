@@ -2,21 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Portfolio Developer Design System - Modern & Professional */
-
 @layer base {
   :root {
-    /* Core Colors - Clean & Minimal */
     --background: 0 0% 100%;
     --foreground: 0 0% 9%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    
-    /* Accent - Single sophisticated color */
     --primary: 0 0% 9%;  /* Pure black for elegance */
     --primary-foreground: 0 0% 98%;
     
-    /* Neutral tones */
     --secondary: 0 0% 96%;
     --secondary-foreground: 0 0% 9%;
     
@@ -218,8 +212,8 @@
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+  from { height: 90%; }
+  to { height: 100%; }
 }
 
 @keyframes blink {
@@ -268,25 +262,6 @@
 
 .animate-fade-up {
   animation: fade-up 0.8s ease-out;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.8s ease-out;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.8s ease-out;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.6s ease-out;
-}
-
-.animate-typewriter {
   animation: typewriter 2s steps(40) forwards, blink 1s infinite;
 }
 
@@ -310,20 +285,8 @@
   animation: loader-shimmer 1.5s ease-in-out infinite;
 }
 
-/* Animation Delays */
 .animation-delay-200 {
   animation-delay: 200ms;
-}
-
-.animation-delay-400 {
-  animation-delay: 400ms;
-}
-
-.animation-delay-600 {
-  animation-delay: 600ms;
-}
-
-.animation-delay-800 {
   animation-delay: 800ms;
 }
 
@@ -331,25 +294,14 @@
   animation-delay: 1000ms;
 }
 
-/* Hover Effects */
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-.hover-glow {
-  transition: all 0.3s ease;
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
 }
 
-/* Loading Specific Animations */
 .loading-grid {
   background-image: 
     linear-gradient(hsl(var(--border)) 1px, transparent 1px),
@@ -365,4 +317,17 @@
 .loading-binary {
   font-family: 'Courier New', monospace;
   letter-spacing: 2px;
+}
+
+.w-2.h-2.green.rounded-xl {
+    background: green;
+}
+
+.inline-flex.items-center.rounded-full.border.px-2\.5.py-0\.5.text-xs.font-semibold.transition-colors.focus\:outline-none.focus\:ring-2.focus\:ring-ring.focus\:ring-offset-2.border-transparent.hover\:bg-primary\/80.bg-primary.text-primary-foreground.shadow-md {
+    background: green;
+}
+
+.inline-flex.items-center.rounded-full.border.px-2\.5.py-0\.5.text-xs.font-semibold.transition-colors.focus\:outline-none.focus\:ring-2.focus\:ring-ring.focus\:ring-offset-2.border-transparent.hover\:bg-primary\/80.bg-secondary.text-secondary-foreground.shadow-md {
+    background: red;
+    color: white;
 }

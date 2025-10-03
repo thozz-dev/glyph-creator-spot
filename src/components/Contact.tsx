@@ -12,7 +12,8 @@ import {
   Send,
   Github,
   ExternalLink,
-  Clock
+  Clock,
+  Lock
 } from "lucide-react";
 
 const Contact = () => {
@@ -25,27 +26,13 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    toast({
-      title: "Message envoyé !",
-      description: "Je vous recontacterai dans les plus brefs délais.",
-    });
-    
-    setFormData({ name: "", email: "", project: "", message: "" });
-    setIsSubmitting(false);
+    // Formulaire bloqué - ne fait rien
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+  const handleInputChange = (e) => {
+    // Inputs bloqués - ne fait rien
   };
 
   const contactInfo = [
@@ -92,8 +79,8 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
-          <Card className="card-elevated p-8">
+          {/* Contact Form - Bloqué */}
+          <Card className="card-elevated p-8 relative">
             <div className="mb-6">
               <h3 className="text-2xl font-bold mb-2">Démarrons votre projet</h3>
               <p className="text-muted-foreground">
@@ -101,93 +88,128 @@ const Contact = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
-                    Nom complet *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Votre nom"
-                    className="transition-all duration-300 focus:shadow-glow"
-                  />
+            {/* Formulaire flouté */}
+            <div className="blur-sm pointer-events-none">
+              <div className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Nom complet *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Votre nom"
+                      className="transition-all duration-300 focus:shadow-glow"
+                      disabled
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="votre@email.com"
+                      className="transition-all duration-300 focus:shadow-glow"
+                      disabled
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
-                    Email *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="votre@email.com"
-                    className="transition-all duration-300 focus:shadow-glow"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label htmlFor="project" className="block text-sm font-medium mb-2">
-                  Type de projet *
-                </label>
-                <select
-                  id="project"
-                  name="project"
-                  required
-                  value={formData.project}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground transition-all duration-300 focus:shadow-glow focus:outline-none focus:ring-2 focus:ring-primary"
+                <div>
+                  <label htmlFor="project" className="block text-sm font-medium mb-2">
+                    Type de projet *
+                  </label>
+                  <select
+                    id="project"
+                    name="project"
+                    required
+                    value={formData.project}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground transition-all duration-300 focus:shadow-glow focus:outline-none focus:ring-2 focus:ring-primary"
+                    disabled
+                  >
+                    <option value="">Sélectionnez un type de projet</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Décrivez votre projet, vos besoins, votre budget approximatif..."
+                    rows={6}
+                    className="transition-all duration-300 focus:shadow-glow resize-none"
+                    disabled
+                  />
+                </div>
+
+                <Button 
+                  type="submit"
+                  disabled={true}
+                  className="w-full px-8 py-3 rounded-xm group hover-glow opacity-50"
                 >
-                  <option value="">Sélectionnez un type de projet</option>
-                  {projectTypes.map((type) => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
+                  Envoyer le message
+                  <Send className="ml-2 h-5 w-5" />
+                </Button>
               </div>
+            </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message *
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Décrivez votre projet, vos besoins, votre budget approximatif..."
-                  rows={6}
-                  className="transition-all duration-300 focus:shadow-glow resize-none"
-                />
+            {/* Overlay avec message de contact direct */}
+            <div className="absolute inset-0 bg-background/90 backdrop-blur-sm flex items-center justify-center rounded-lg">
+              <div className="text-center p-6 max-w-md">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lock className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="text-xl font-bold mb-3 text-foreground">
+                  Contactez-moi directement
+                </h4>
+                <p className="text-muted-foreground mb-6">
+                  Pour une réponse plus rapide, contactez-moi directement via :
+                </p>
+                <div className="flex flex-col gap-3">
+                  <Button
+                    variant="default"
+                    className="w-full rounded-xl hover:shadow-glow transition-all duration-300"
+                    asChild
+                  >
+                    <a href="mailto:contact@joao-dev.com">
+                      <Mail className="h-4 w-4 mr-2" />
+                      contact@joao-dev.com
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="w-full rounded-xl hover:shadow-glow transition-all duration-300"
+                    asChild
+                  >
+                    <a href="#">
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Discord: .thozz
+                    </a>
+                  </Button>
+                </div>
               </div>
-
-              <Button 
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-3 rounded-full group hover-glow"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                    Envoi en cours...
-                  </>
-                ) : (
-                  <>
-                    Envoyer le message
-                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </>
-                )}
-              </Button>
-            </form>
+            </div>
           </Card>
 
           {/* Contact Info */}
@@ -233,7 +255,7 @@ const Contact = () => {
               <div className="space-y-4">
                 {[
                   { label: "Réponse rapide", value: "< 24h", icon: Clock },
-                  { label: "Projets livrés", value: "80+", icon: ExternalLink },
+                  { label: "Projets livrés", value: "10+", icon: ExternalLink },
                   { label: "Satisfaction client", value: "100%", icon: MessageCircle }
                 ].map((stat) => {
                   const IconComponent = stat.icon;
@@ -265,7 +287,7 @@ const Contact = () => {
                       key={social.label}
                       variant="outline"
                       size="sm"
-                      className="rounded-full hover:shadow-glow transition-all duration-300"
+                      className="rounded-xl hover:shadow-glow transition-all duration-300"
                       asChild
                     >
                       <a href={social.href} target="_blank" rel="noopener noreferrer">

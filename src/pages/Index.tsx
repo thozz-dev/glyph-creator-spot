@@ -19,7 +19,6 @@ const Index = () => {
   };
 
   useEffect(() => {
-    // Simulate initial loading time
     const timer = setTimeout(() => {
       if (isLoading) {
         handleLoadingComplete();
