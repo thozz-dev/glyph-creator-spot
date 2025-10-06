@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,6 +60,7 @@ const Index = () => {
           </div>
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </div>
   );

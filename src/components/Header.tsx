@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,6 +67,7 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageToggle />
             <ThemeToggle />
             <Button 
               onClick={() => scrollToSection("#contact")}
@@ -101,7 +103,8 @@ const Header = () => {
               </button>
             ))}
             <div className="pt-4 border-t border-border space-y-3">
-              <div className="flex justify-center">
+              <div className="flex justify-center gap-3">
+                <LanguageToggle />
                 <ThemeToggle />
               </div>
               <Button 

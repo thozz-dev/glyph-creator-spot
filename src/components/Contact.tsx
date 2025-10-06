@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import ProfileCard from "@/components/ProfileCard";
 import { 
   Mail, 
   MessageCircle, 
@@ -214,6 +215,9 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="space-y-8">
+            {/* Profile Card */}
+            <ProfileCard />
+            
             {/* Contact Methods */}
             <div className="space-y-4">
               {contactInfo.map((info) => {
