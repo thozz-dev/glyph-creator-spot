@@ -1,8 +1,10 @@
 import { Star, Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
+  const { t } = useLanguage();
   const testimonials = [
     {
       id: 1,
@@ -52,9 +54,9 @@ const Testimonials = () => {
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="mb-6">Témoignages Clients</h2>
+          <h2 className="mb-6">{t.testimonials.title}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Découvrez ce que mes clients pensent de mon travail et de mes services.
+            {t.testimonials.subtitle}
           </p>
         </div>
 
@@ -105,9 +107,9 @@ const Testimonials = () => {
         {/* Call to Action */}
         <div className="text-center mt-12 animate-fade-up" style={{ animationDelay: "600ms" }}>
           <p className="text-muted-foreground">
-            Vous voulez être le prochain à partager votre expérience ? 
+            {t.testimonials.cta}
             <a href="#contact" className="text-foreground font-semibold ml-2 hover:text-primary transition-colors">
-              Contactez-moi →
+              {t.testimonials.contactLink}
             </a>
           </p>
         </div>

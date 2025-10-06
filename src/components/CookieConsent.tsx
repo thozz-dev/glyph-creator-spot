@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Cookie, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookieConsent");
@@ -35,11 +37,10 @@ const CookieConsent = () => {
           
           <div className="flex-1">
             <h3 className="text-lg font-bold mb-2 text-foreground">
-              Cookies & Confidentialité
+              {t.cookies.title}
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Ce site utilise des cookies pour améliorer votre expérience de navigation. 
-              En continuant, vous acceptez l'utilisation de cookies conformément à notre politique de confidentialité.
+              {t.cookies.description}
             </p>
             
             <div className="flex flex-wrap gap-3">
@@ -48,7 +49,7 @@ const CookieConsent = () => {
                 className="rounded-xl hover-lift"
                 size="sm"
               >
-                Accepter tous les cookies
+                {t.cookies.accept}
               </Button>
               <Button
                 onClick={handleDecline}
@@ -56,7 +57,7 @@ const CookieConsent = () => {
                 className="rounded-xl hover-lift"
                 size="sm"
               >
-                Refuser
+                {t.cookies.decline}
               </Button>
             </div>
           </div>

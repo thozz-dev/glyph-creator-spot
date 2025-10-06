@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,12 +20,12 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { label: "Accueil", href: "#hero" },
-    { label: "À propos", href: "#about" },
-    { label: "Compétences", href: "#skills" },
-    { label: "Projets", href: "#projects" },
-    { label: "Témoignages", href: "#testimonials" },
-    { label: "Contact", href: "#contact" }
+    { label: t.nav.home, href: "#hero" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.testimonials, href: "#testimonials" },
+    { label: t.nav.contact, href: "#contact" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -73,7 +75,7 @@ const Header = () => {
               onClick={() => scrollToSection("#contact")}
               className="px-8 rounded-xl"
             >
-              Me contacter
+              {t.nav.contactMe}
             </Button>
           </div>
 
@@ -111,7 +113,7 @@ const Header = () => {
                 onClick={() => scrollToSection("#contact")}
                 className="w-full rounded-xl"
               >
-                Me contacter
+                {t.nav.contactMe}
               </Button>
             </div>
           </nav>

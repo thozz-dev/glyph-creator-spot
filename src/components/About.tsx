@@ -1,8 +1,10 @@
 import { Code2, Gamepad2, Zap, Award, Users, TrendingUp } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,43 +26,43 @@ const About = () => {
 
   const bentoCards = [
     {
-      title: "Qui suis-je ?",
-      description: "Développeur passionné avec plusieurs années d'expérience en développement web et FiveM. Je transforme des idées en solutions digitales performantes et élégantes.",
+      title: t.about.cards.who.title,
+      description: t.about.cards.who.description,
       icon: Code2,
       className: "md:col-span-2 md:row-span-2",
       gradient: "from-primary/10 to-primary/5"
     },
     {
-      title: "Expertise FiveM",
-      description: "Spécialisé dans la création de serveurs FiveM optimisés avec scripts personnalisés et NUI modernes.",
+      title: t.about.cards.fivem.title,
+      description: t.about.cards.fivem.description,
       icon: Gamepad2,
       className: "md:col-span-1 md:row-span-1",
       gradient: "from-accent/20 to-accent/10"
     },
     {
-      title: "Développement Web",
-      description: "Création d'applications web avec React, Next.js et TypeScript pour des expériences utilisateur exceptionnelles.",
+      title: t.about.cards.web.title,
+      description: t.about.cards.web.description,
       icon: Zap,
       className: "md:col-span-1 md:row-span-1",
       gradient: "from-muted to-muted/50"
     },
     {
-      title: "Qualité & Performance",
-      description: "Code optimisé, clean et maintenable. Je priorise la performance et l'expérience utilisateur dans chaque projet.",
+      title: t.about.cards.quality.title,
+      description: t.about.cards.quality.description,
       icon: Award,
       className: "md:col-span-1 md:row-span-1",
       gradient: "from-surface to-surface-elevated"
     },
     {
-      title: "Collaboration",
-      description: "Travail en étroite collaboration avec les clients pour garantir que chaque projet répond parfaitement aux besoins.",
+      title: t.about.cards.collaboration.title,
+      description: t.about.cards.collaboration.description,
       icon: Users,
       className: "md:col-span-1 md:row-span-1",
       gradient: "from-muted/50 to-background"
     },
     {
-      title: "Innovation",
-      description: "Toujours à jour avec les dernières technologies et tendances pour offrir des solutions modernes.",
+      title: t.about.cards.innovation.title,
+      description: t.about.cards.innovation.description,
       icon: TrendingUp,
       className: "md:col-span-1 md:row-span-1",
       gradient: "from-primary/5 to-background"
@@ -77,10 +79,9 @@ const About = () => {
 
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 animate-fade-up">
-          <h2 className="mb-6">À Propos</h2>
+          <h2 className="mb-6">{t.about.title}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Passionné par la création d'expériences digitales uniques, 
-            je combine expertise technique et créativité pour donner vie à vos projets.
+            {t.about.subtitle}
           </p>
         </div>
 
@@ -121,10 +122,10 @@ const About = () => {
         {/* Stats Bar */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {[
-            { value: "3+", label: "Années d'expérience" },
-            { value: "15+", label: "Projets réalisés" },
-            { value: "100%", label: "Clients satisfaits" },
-            { value: "24/7", label: "Support disponible" }
+            { value: "3+", label: t.about.stats.experience },
+            { value: "15+", label: t.about.stats.projects },
+            { value: "100%", label: t.about.stats.satisfaction },
+            { value: "24/7", label: t.about.stats.support }
           ].map((stat, index) => (
             <div 
               key={stat.label}
