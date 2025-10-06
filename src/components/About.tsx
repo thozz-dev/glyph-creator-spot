@@ -76,7 +76,7 @@ const About = () => {
       </div>
 
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="text-center mb-12 animate-fade-up">
           <h2 className="mb-6">À Propos</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Passionné par la création d'expériences digitales uniques, 
