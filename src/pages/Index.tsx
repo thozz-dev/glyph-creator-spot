@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Loading from "@/components/Loading";
-import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,23 +41,16 @@ const Index = () => {
             <Hero />
           </section>
           <div className="animate-fade-up animation-delay-200">
-            <About />
-          </div>
-          <div className="animate-fade-up animation-delay-200">
             <Skills />
           </div>
           <div className="animate-fade-up animation-delay-400">
             <Projects />
-          </div>
-          <div className="animate-fade-up animation-delay-400">
-            <Testimonials />
           </div>
           <div className="animate-fade-up animation-delay-600">
             <Contact />
           </div>
         </main>
         <Footer />
-        <CookieConsent />
       </div>
     </div>
   );

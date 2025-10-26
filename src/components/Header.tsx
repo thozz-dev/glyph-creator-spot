@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Code2 } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
-import LanguageToggle from "@/components/LanguageToggle";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +16,10 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { label: t.nav.home, href: "#hero" },
-    { label: t.nav.about, href: "#about" },
-    { label: t.nav.skills, href: "#skills" },
-    { label: t.nav.projects, href: "#projects" },
-    { label: t.nav.testimonials, href: "#testimonials" },
-    { label: t.nav.contact, href: "#contact" }
+    { label: "Accueil", href: "#hero" },
+    { label: "Compétences", href: "#skills" },
+    { label: "Projets", href: "#projects" },
+    { label: "Contact", href: "#contact" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -68,14 +62,12 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <LanguageToggle />
-            <ThemeToggle />
+          <div className="hidden md:block">
             <Button 
               onClick={() => scrollToSection("#contact")}
               className="px-8 rounded-xl"
             >
-              {t.nav.contactMe}
+              Me contacter
             </Button>
           </div>
 
@@ -104,16 +96,12 @@ const Header = () => {
                 {item.label}
               </button>
             ))}
-            <div className="pt-4 border-t border-border space-y-3">
-              <div className="flex justify-center gap-3">
-                <LanguageToggle />
-                <ThemeToggle />
-              </div>
+            <div className="pt-4 border-t border-border">
               <Button 
                 onClick={() => scrollToSection("#contact")}
                 className="w-full rounded-xl"
               >
-                {t.nav.contactMe}
+                Me contacter
               </Button>
             </div>
           </nav>

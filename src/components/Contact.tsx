@@ -4,10 +4,11 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   Mail, 
   MessageCircle, 
+  Phone, 
+  MapPin,
   Send,
   Github,
   ExternalLink,
@@ -24,35 +25,34 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const { t } = useLanguage();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Formulaire bloqué - ne fait rien
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e) => {
     // Inputs bloqués - ne fait rien
   };
 
   const contactInfo = [
     {
       icon: Mail,
-      label: t.contact.info.email,
+      label: "Email",
       value: "contact@joao-dev.com",
       href: "mailto:contact@joao-dev.com",
       color: "primary"
     },
     {
       icon: MessageCircle,
-      label: t.contact.info.discord,
+      label: "Discord",
       value: ".thozz",
       href: "#",
       color: "secondary"
     },
     {
       icon: Clock,
-      label: t.contact.info.availability,
+      label: "Disponibilité",
       value: "2h/j",
       href: null,
       color: "accent"
@@ -60,20 +60,21 @@ const Contact = () => {
   ];
 
   const projectTypes = [
-    t.contact.projectTypes.web,
-    t.contact.projectTypes.fivem,
-    t.contact.projectTypes.optimization,
-    t.contact.projectTypes.creation,
-    t.contact.projectTypes.other
+    "Site Web / Web Application",
+    "Serveur FiveM",
+    "Optimisation / Maintenance",
+    "Creation / Amélioration (Fivem & Web)",
+    "Autre"
   ];
 
   return (
     <section id="contact" className="py-20 bg-muted">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="mb-6">{t.contact.title}</h2>
+          <h2 className="mb-6">Contactez-moi</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t.contact.subtitle}
+            Prêt à donner vie à votre projet ? Parlons-en ensemble et créons 
+            quelque chose d'exceptionnel.
           </p>
         </div>
 
@@ -81,9 +82,9 @@ const Contact = () => {
           {/* Contact Form - Bloqué */}
           <Card className="card-elevated p-8 relative">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-2">{t.contact.form.title}</h3>
+              <h3 className="text-2xl font-bold mb-2">Démarrons votre projet</h3>
               <p className="text-muted-foreground">
-                {t.contact.form.subtitle}
+                Remplissez ce formulaire et je vous recontacterai rapidement.
               </p>
             </div>
 
@@ -93,7 +94,7 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      {t.contact.form.name} *
+                      Nom complet *
                     </label>
                     <Input
                       id="name"
@@ -102,14 +103,14 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder={t.contact.form.name}
+                      placeholder="Votre nom"
                       className="transition-all duration-300 focus:shadow-glow"
                       disabled
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      {t.contact.form.email} *
+                      Email *
                     </label>
                     <Input
                       id="email"
@@ -118,7 +119,7 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder={t.contact.form.email}
+                      placeholder="votre@email.com"
                       className="transition-all duration-300 focus:shadow-glow"
                       disabled
                     />
@@ -127,7 +128,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="project" className="block text-sm font-medium mb-2">
-                    {t.contact.form.project} *
+                    Type de projet *
                   </label>
                   <select
                     id="project"
@@ -138,7 +139,7 @@ const Contact = () => {
                     className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground transition-all duration-300 focus:shadow-glow focus:outline-none focus:ring-2 focus:ring-primary"
                     disabled
                   >
-                    <option value="">{t.contact.form.projectPlaceholder}</option>
+                    <option value="">Sélectionnez un type de projet</option>
                     {projectTypes.map((type) => (
                       <option key={type} value={type}>{type}</option>
                     ))}
@@ -147,7 +148,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    {t.contact.form.message} *
+                    Message *
                   </label>
                   <Textarea
                     id="message"
@@ -155,7 +156,7 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder={t.contact.form.messagePlaceholder}
+                    placeholder="Décrivez votre projet, vos besoins, votre budget approximatif..."
                     rows={6}
                     className="transition-all duration-300 focus:shadow-glow resize-none"
                     disabled
@@ -167,7 +168,7 @@ const Contact = () => {
                   disabled={true}
                   className="w-full px-8 py-3 rounded-xm group hover-glow opacity-50"
                 >
-                  {t.contact.form.send}
+                  Envoyer le message
                   <Send className="ml-2 h-5 w-5" />
                 </Button>
               </div>
@@ -180,10 +181,10 @@ const Contact = () => {
                   <Lock className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="text-xl font-bold mb-3 text-foreground">
-                  {t.contact.direct.title}
+                  Contactez-moi directement
                 </h4>
                 <p className="text-muted-foreground mb-6">
-                  {t.contact.direct.subtitle}
+                  Pour une réponse plus rapide, contactez-moi directement via :
                 </p>
                 <div className="flex flex-col gap-3">
                   <Button
@@ -250,12 +251,12 @@ const Contact = () => {
 
             {/* Quick Stats */}
             <Card className="card-elevated p-6">
-              <h4 className="font-bold text-lg mb-4 text-center">{t.contact.why.title}</h4>
+              <h4 className="font-bold text-lg mb-4 text-center">Pourquoi me choisir ?</h4>
               <div className="space-y-4">
                 {[
-                  { label: t.contact.why.response, value: "< 24h", icon: Clock },
-                  { label: t.contact.why.delivered, value: "10+", icon: ExternalLink },
-                  { label: t.contact.why.satisfaction, value: "100%", icon: MessageCircle }
+                  { label: "Réponse rapide", value: "< 24h", icon: Clock },
+                  { label: "Projets livrés", value: "10+", icon: ExternalLink },
+                  { label: "Satisfaction client", value: "100%", icon: MessageCircle }
                 ].map((stat) => {
                   const IconComponent = stat.icon;
                   return (
@@ -273,7 +274,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <Card className="card-elevated p-6">
-              <h4 className="font-bold text-lg mb-4 text-center">{t.contact.social}</h4>
+              <h4 className="font-bold text-lg mb-4 text-center">Retrouvez-moi aussi sur</h4>
               <div className="flex justify-center gap-4">
                 {[
                   { icon: Github, href: "https://github.com/thozz-dev", label: "GitHub" },
